@@ -8,6 +8,7 @@ Most landing templates either look generic or sacrifice performance. This projec
 ## Key features
 - Config-driven copy and sections via `src/lib/siteConfig.ts`.
 - Scroll-driven camera, parallax, explode view, and cinematic light presets.
+- Light/dark theme toggle with system preference detection.
 - Performance-aware rendering with auto low-mode detection.
 - Accessibility-first interactions and reduced motion support.
 - Error boundary with static fallback image for 3D failures.

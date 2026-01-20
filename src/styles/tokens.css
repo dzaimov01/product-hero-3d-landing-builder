@@ -19,7 +19,14 @@
   --surface-muted: #11151b;
   --text-primary: #f7f5f2;
   --text-secondary: #b9c2cd;
+  --text-muted: #6f7c8f;
   --accent: #d6b36a;
+  --border-subtle: #1a2230;
+  --border-strong: #242f3f;
+  --surface-glass: rgba(17, 21, 27, 0.7);
+  --surface-strong: rgba(17, 21, 27, 0.9);
+  --page-bg: radial-gradient(circle at top, rgba(214, 179, 106, 0.08), transparent 50%),
+    linear-gradient(180deg, #090b0f 0%, #0b0e13 100%);
 }
 
 [data-theme='light'] {
@@ -27,5 +34,12 @@
   --surface-muted: #efe9e0;
   --text-primary: #121720;
   --text-secondary: #4e5b70;
+  --text-muted: #7a8695;
   --accent: #c29c4b;
+  --border-subtle: #d8d2c8;
+  --border-strong: #c9c1b5;
+  --surface-glass: rgba(239, 233, 224, 0.85);
+  --surface-strong: rgba(247, 245, 242, 0.95);
+  --page-bg: radial-gradient(circle at top, rgba(194, 156, 75, 0.12), transparent 50%),
+    linear-gradient(180deg, #f7f5f2 0%, #efe9e0 100%);
 }

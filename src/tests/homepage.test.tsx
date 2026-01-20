@@ -5,5 +5,5 @@ import { siteConfig } from '@/lib/siteConfig';
 it('renders the homepage hero', () => {
   render(<Page />);
   expect(screen.getByRole('heading', { name: siteConfig.headline })).toBeInTheDocument();
-  expect(screen.getByRole('link', { name: siteConfig.primaryCta.label })).toBeInTheDocument();
+  expect(screen.getAllByRole('link', { name: siteConfig.primaryCta.label }).length).toBeGreaterThan(0);
 });

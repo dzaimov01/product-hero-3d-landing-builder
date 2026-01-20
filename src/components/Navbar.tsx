@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { siteConfig } from '@/lib/siteConfig';
+import { ThemeToggle } from './ThemeToggle';
 
 export function Navbar() {
   return (
@@ -9,17 +10,24 @@ export function Navbar() {
       </Link>
       <div className="hidden items-center gap-8 md:flex">
         {siteConfig.navLinks.map((link) => (
-          <a key={link.href} href={link.href} className="text-sm text-ink-300 hover:text-white">
+          <a
+            key={link.href}
+            href={link.href}
+            className="text-sm text-[color:var(--text-secondary)] hover:text-[color:var(--text-primary)]"
+          >
             {link.label}
           </a>
         ))}
       </div>
-      <a
-        href={siteConfig.primaryCta.href}
-        className="rounded-full border border-ink-700 px-4 py-2 text-sm text-white transition hover:border-aurum-500 hover:text-aurum-500"
-      >
-        {siteConfig.primaryCta.label}
-      </a>
+      <div className="flex items-center gap-3">
+        <ThemeToggle />
+        <a
+          href={siteConfig.primaryCta.href}
+          className="rounded-full border border-[color:var(--border-strong)] px-4 py-2 text-sm text-[color:var(--text-primary)] transition hover:border-[color:var(--accent)] hover:text-[color:var(--accent)]"
+        >
+          {siteConfig.primaryCta.label}
+        </a>
+      </div>
     </nav>
   );
 }

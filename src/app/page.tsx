@@ -14,7 +14,7 @@ export default function Page() {
     <div className="min-h-screen">
       <div className="mx-auto flex w-full max-w-6xl flex-col px-6">
         <Navbar />
-        <main>
+        <main className="space-y-16 pb-24">
           <Hero />
           <SocialProof />
           <Features />

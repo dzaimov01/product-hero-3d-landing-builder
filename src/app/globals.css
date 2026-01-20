@@ -4,8 +4,12 @@
 
 @import '../styles/tokens.css';
 
-:root {
+html[data-theme='dark'] {
   color-scheme: dark;
+}
+
+html[data-theme='light'] {
+  color-scheme: light;
 }
 
 * {
@@ -16,10 +20,23 @@ body {
   margin: 0;
   min-height: 100vh;
   font-family: 'Suisse', 'Helvetica Neue', Arial, sans-serif;
-  background: radial-gradient(circle at top, rgba(214, 179, 106, 0.08), transparent 50%),
-    linear-gradient(180deg, #090b0f 0%, #0b0e13 100%);
+  background: var(--page-bg);
   color: var(--text-primary, #f7f5f2);
   text-rendering: optimizeLegibility;
+}
+
+.bg-mesh {
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(214, 179, 106, 0.18), transparent 45%),
+    radial-gradient(circle at 80% 10%, rgba(90, 125, 255, 0.12), transparent 40%),
+    radial-gradient(circle at 50% 90%, rgba(255, 255, 255, 0.06), transparent 50%);
+}
+
+.bg-grid {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 120px 120px;
+  mask-image: radial-gradient(circle at 50% 20%, black 0%, transparent 70%);
 }
 
 a {

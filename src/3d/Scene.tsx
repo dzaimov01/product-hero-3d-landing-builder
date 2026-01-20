@@ -1,6 +1,7 @@
 'use client';
 
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
+import { ContactShadows } from '@react-three/drei';
 import { Suspense, useEffect, useMemo, useRef } from 'react';
 import * as THREE from 'three';
 import { lightingPresets, LightingPresetKey } from './lightingPresets';
@@ -41,6 +42,29 @@ function CameraRig({
   return null;
 }
 
+function ProductRig({
+  reduceMotion,
+  children
+}: {
+  reduceMotion: boolean;
+  children: React.ReactNode;
+}) {
+  const group = useRef<THREE.Group>(null);
+
+  useFrame((state, delta) => {
+    if (reduceMotion || !group.current) return;
+    group.current.rotation.y += delta * 0.15;
+    group.current.rotation.x = THREE.MathUtils.lerp(
+      group.current.rotation.x,
+      Math.sin(state.clock.elapsedTime * 0.3) * 0.08,
+      0.05
+    );
+    group.current.position.y = Math.sin(state.clock.elapsedTime * 0.6) * 0.05;
+  });
+
+  return <group ref={group}>{children}</group>;
+}
+
 function SceneContent({
   preset,
   explode,
@@ -66,14 +90,19 @@ function SceneContent({
       />
       <directionalLight position={presetConfig.fill} intensity={0.4} />
       <directionalLight position={presetConfig.rim} intensity={0.35} />
-      <group position={[0, 0.2, 0]}>
-        <ProductModel explode={explode} />
-      </group>
-      {!reduceMotion && (
-        <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.6, 0]} receiveShadow={shadowEnabled}>
-          <circleGeometry args={[4, 64]} />
-          <meshStandardMaterial color="#0b0e13" roughness={0.8} metalness={0.1} />
-        </mesh>
+      <spotLight
+        position={[0, 4.5, 4]}
+        intensity={shadowEnabled ? 0.6 : 0.3}
+        angle={0.35}
+        penumbra={0.6}
+      />
+      <ProductRig reduceMotion={reduceMotion}>
+        <group position={[0, 0.25, 0]}>
+          <ProductModel explode={explode} scale={1.15} />
+        </group>
+      </ProductRig>
+      {!reduceMotion && shadowEnabled && (
+        <ContactShadows opacity={0.35} scale={8} blur={2.6} far={4} position={[0, -0.7, 0]} />
       )}
     </>
   );

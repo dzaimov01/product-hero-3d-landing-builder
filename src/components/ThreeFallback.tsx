@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export function ThreeFallback() {
   return (
-    <div className="flex h-full w-full items-center justify-center rounded-2xl border border-ink-800 bg-ink-900/70">
+    <div className="flex h-full w-full items-center justify-center rounded-2xl border border-[color:var(--border-subtle)] bg-[color:var(--surface-strong)]">
       <Image
         src="/hero-fallback.svg"
         alt="Static product visual placeholder"
