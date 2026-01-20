@@ -1,0 +1,31 @@
+:root {
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4.5rem;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.875rem;
+  --radius-lg: 1.5rem;
+  --shadow-soft: 0 20px 50px rgba(6, 10, 18, 0.2);
+  --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme='dark'] {
+  --surface: #0b0e13;
+  --surface-muted: #11151b;
+  --text-primary: #f7f5f2;
+  --text-secondary: #b9c2cd;
+  --accent: #d6b36a;
+}
+
+[data-theme='light'] {
+  --surface: #f7f5f2;
+  --surface-muted: #efe9e0;
+  --text-primary: #121720;
+  --text-secondary: #4e5b70;
+  --accent: #c29c4b;
+}

@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import '../styles/tokens.css';
+
+:root {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Suisse', 'Helvetica Neue', Arial, sans-serif;
+  background: radial-gradient(circle at top, rgba(214, 179, 106, 0.08), transparent 50%),
+    linear-gradient(180deg, #090b0f 0%, #0b0e13 100%);
+  color: var(--text-primary, #f7f5f2);
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--accent, #d6b36a);
+  outline-offset: 3px;
+  border-radius: 0.5rem;
+}
+
+::selection {
+  background: rgba(214, 179, 106, 0.25);
+}
