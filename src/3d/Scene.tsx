@@ -35,8 +35,10 @@ function CameraRig({
     const targetY = THREE.MathUtils.lerp(1.5, 2.2, t);
     const targetX = parallaxEnabled ? pointer.x * 0.6 : 0;
     camera.position.lerp(new THREE.Vector3(targetX, targetY, targetZ), 1 - Math.pow(0.0001, delta));
-    camera.fov = THREE.MathUtils.lerp(45, 38, t);
-    camera.updateProjectionMatrix();
+    if (camera instanceof THREE.PerspectiveCamera) {
+      camera.fov = THREE.MathUtils.lerp(45, 38, t);
+      camera.updateProjectionMatrix();
+    }
   });
 
   return null;

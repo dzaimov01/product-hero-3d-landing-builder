@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+import { it, expect } from 'vitest';
 import Page from '@/app/page';
 import { siteConfig } from '@/lib/siteConfig';
 

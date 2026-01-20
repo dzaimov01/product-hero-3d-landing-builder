@@ -34,7 +34,7 @@ export function Hero() {
   }, []);
 
   useEffect(() => {
-    setReduceMotion(systemReducedMotion);
+    setReduceMotion(systemReducedMotion ?? false);
   }, [systemReducedMotion]);
 
   const explodeValue = useMemo(() => (explode ? 1 : 0), [explode]);
